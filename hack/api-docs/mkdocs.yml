@@ -40,9 +40,11 @@ plugins:
       lang: en
   - macros:
       include_dir: docs/snippets
+#  - social:
+#      cards: false
 copyright: |
-  &copy; 2025 The external-secrets Authors.<br/>
-  &copy; 2025 The Linux Foundation. All rights reserved.<br/><br/>
+  &copy; 2026 The external-secrets Authors.<br/>
+  &copy; 2026 The Linux Foundation. All rights reserved.<br/><br/>
   The Linux Foundation has registered trademarks and uses trademarks.<br/>
   For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage page</a>.
 extra:
@@ -51,6 +53,11 @@ extra:
   analytics:
     provider: google
     property: G-QP38TD8K7V
+  social:
+    - icon: fontawesome/brands/slack
+      link: https://kubernetes.slack.com/messages/external-secrets
+    - icon: fontawesome/brands/github
+      link: https://github.com/external-secrets/external-secrets
 nav:
   - Introduction:
       - Introduction: index.md
