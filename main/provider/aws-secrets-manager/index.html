@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../pictures/eso-round-logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1085,6 +1085,8 @@
       
         
       
+        
+      
     
     
     
@@ -1294,6 +1296,34 @@
     
   
     Google Container Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/generator/grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grafana
   
 
     
@@ -3254,34 +3284,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../device42/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Device42
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../google-secrets-manager/" class="md-nav__link">
         
   
@@ -3478,34 +3480,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../alibaba/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Alibaba Cloud
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../gitlab-variables/" class="md-nav__link">
         
   
@@ -3570,6 +3544,34 @@
     
   
     Oracle Vault
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ovhcloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OVHcloud
   
 
     
@@ -4186,6 +4188,34 @@
     
   
     Devolutions Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nebius-mysterybox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nebius MysteryBox
   
 
     
@@ -5225,12 +5255,14 @@ a <code>path</code> prefix or use <code>Tags</code> filter.</p>
 <span class="w">        </span><span class="c1"># recoveryWindowInDays: 9 (conflicts with forceDeleteWithoutRecovery)</span>
 </code></pre></div>
 <h4 id="additional-metadata-for-pushsecret">Additional Metadata for PushSecret</h4>
-<p>Optionally, it is possible to configure additional options for the parameter. These are as follows:
-- kmsKeyID
-- secretPushFormat
-- description
-- tags
-- resourcePolicy</p>
+<p>Optionally, it is possible to configure additional options for the parameter. These are as follows:</p>
+<ul>
+<li>kmsKeyID</li>
+<li>secretPushFormat</li>
+<li>description</li>
+<li>tags</li>
+<li>resourcePolicy</li>
+</ul>
 <p>To control this behavior set the following provider metadata:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1alpha1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PushSecret</span>
@@ -5267,6 +5299,9 @@ a <code>path</code> prefix or use <code>Tags</code> filter.</p>
 <li><code>kmsKeyID</code> takes a KMS Key <code>$ID</code> or <code>$ARN</code> (in case a key source is created in another account) as a string, where <code>alias/aws/secretsmanager</code> is the <em>default</em>.</li>
 <li><code>description</code> Description of the secret.</li>
 <li><code>tags</code> Key-value map of user-defined tags that are attached to the secret.</li>
+</ul>
+<p><strong>Note:</strong> ESO treats the PushSecret as the <strong>source of truth</strong> for tags. Tags specified in <code>metadata.tags</code> will be added or updated, and tags NOT specified will be removed from AWS. This synchronization happens on every reconciliation, even when the secret value hasn't changed.</p>
+<ul>
 <li><code>resourcePolicy</code> Attach a resource-based policy to the secret for cross-account access or advanced access control.</li>
 <li><code>blockPublicPolicy</code> (optional) - Set to <code>true</code> to validate that the policy doesn't grant public access before applying. Defaults to AWS behavior.</li>
 <li><code>policySourceRef</code> (required) - Reference to a ConfigMap or Secret containing the policy JSON.<ul>
@@ -5297,18 +5332,18 @@ a <code>path</code> prefix or use <code>Tags</code> filter.</p>
 <span class="w">        </span><span class="nt">remoteRef</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">remoteKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-remote-secret</span>
 <span class="w">          </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
-<span class="w">  </span><span class="nt">metadata</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">resourcePolicy</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">blockPublicPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">policySourceRef</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-secret-resource-policy</span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">policy.json</span>
-<span class="w">    </span><span class="nt">kmsKeyID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bb123123-b2b0-4f60-ac3a-44a13f0e6b6c</span>
-<span class="w">    </span><span class="nt">secretPushFormat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Cross-account</span><span class="nv"> </span><span class="s">accessible</span><span class="nv"> </span><span class="s">secret&quot;</span>
-<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">platform-engineering</span>
+<span class="w">      </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">resourcePolicy</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">blockPublicPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">policySourceRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-secret-resource-policy</span>
+<span class="w">            </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">policy.json</span>
+<span class="w">        </span><span class="nt">kmsKeyID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bb123123-b2b0-4f60-ac3a-44a13f0e6b6c</span>
+<span class="w">        </span><span class="nt">secretPushFormat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Cross-account</span><span class="nv"> </span><span class="s">accessible</span><span class="nv"> </span><span class="s">secret&quot;</span>
+<span class="w">        </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">team</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">platform-engineering</span>
 </code></pre></div>
 <p>The ConfigMap should contain the policy JSON:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -5332,7 +5367,7 @@ a <code>path</code> prefix or use <code>Tags</code> filter.</p>
 <span class="w">      </span><span class="no">]</span>
 <span class="w">    </span><span class="no">}</span>
 </code></pre></div>
-<p><strong>Note:</strong> The resource policy is applied after the secret is created or updated. If the <code>resourcePolicy</code> field is removed from metadata, the existing policy will be deleted from the secret.</p>
+<p><strong>Note:</strong> The resource policy is synchronized on every reconciliation, even when the secret value hasn't changed. If the <code>resourcePolicy</code> field is removed from metadata, the existing policy will be deleted from the secret.</p>
 <h3 id="json-secret-values">JSON Secret Values</h3>
 <p>SecretsManager supports <em>simple</em> key/value pairs that are stored as json. If you use the API you can store more complex JSON objects. You can access nested values or arrays using <a href="https://github.com/tidwall/gjson/blob/master/SYNTAX.md">gjson syntax</a>:</p>
 <p>Consider the following JSON object that is stored in the SecretsManager key <code>friendslist</code>:
@@ -5450,7 +5485,9 @@ a <code>path</code> prefix or use <code>Tags</code> filter.</p>
         
       </main>
       
-<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=6658a9eb-067d-49f1-94f2-b8b00f21451e"  alt=""/>
+<img referrerpolicy="no-referrer-when-downgrade"
+  src="https://static.scarf.sh/a.png?x-pxid=6658a9eb-067d-49f1-94f2-b8b00f21451e" alt=""
+  hidden />
   
         <footer class="md-footer">
   
