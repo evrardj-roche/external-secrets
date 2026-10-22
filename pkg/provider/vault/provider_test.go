@@ -18,6 +18,7 @@ import (
 	"errors"
 	"fmt"
 	"testing"
+	"time"
 
 	"github.com/google/go-cmp/cmp"
 	vault "github.com/hashicorp/vault/api"
@@ -255,6 +256,7 @@ MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQCi4cG2CxHejOXaWW0Xri4PbWyuainu
 MIIFkTCCA3mgAwIBAgIUBEUg3m/WqAsWHG4Q/II3IePFfuowDQYJKoZIhvcNAQELBQAwWDELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDERMA8GA1UEAwwIdmF1bHQtY2EwHhcNMjIwNzI5MjEyMjE4WhcNMzkwMTAxMjEyMjE4WjBYMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMREwDwYDVQQDDAh2YXVsdC1jYTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKLhwbYLEd6M5dpZbReuLg9tbK5qKe6sJm5Qs8sLSMmwkXTOSrvvw7smV5bOHtCGpUEooiFbos1RVL22YYd8cLu59oev1i1p3NWSIPNAq0DQKBxyj3wJ9ftvOfmlmf/J+dtE39pPLFPnffkMWEdzT8UImfZD/kf1S1fotHcffNtP0ijfZPQHo4BQooH/e7PEAQIXDBIrxSoZR57wkoYGtTXRdEAwbE5zUE5ZikIdZlEfYVEYiBL5vBgc5dSM+/oUfurH7AIzOXGp30sa+JzYKkUTQGISw4siJj+oSqjO93Zo4tWEE+NP/0tNe9FnBf+oDuHhgiyerk3yU3jK2vJvXc3191FWDKZXKQaRoCaHnMDgMiDjxQtbM590/BFDWRWrZNGaPciVwmw2foyAclNtGq8J0kzIDn0VRkL35Ad8LfTuxXZpY+hVPC5TIPek4W7grQtX44ohVDw5M6oClucv104tXHjAVVgTfaVMLi1F3FRTwwqI8ShPX0D5ssw+tkeepcIhHMvDB97AgKBM1g24MdX3c6aokrghdwXxQbTS/6lHD66apc3E2STTHeCt9fnDSwEZlvK6iNgedBDHrBl9SXeYTMnbOWYIHX/YYq1efq0gOZHHN4nZuBopOMb+4K/04a2nVUuafdv/eoL6F7h+/+UaH/N3+LkkxWAxcz0w9GVZAgMBAAGjUzBRMB0GA1UdDgQWBBQuIVwmjMZvkq+jf6ViTelH5KDBVDAfBgNVHSMEGDAWgBQuIVwmjMZvkq+jf6ViTelH5KDBVDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4ICAQAk4kNyFzmiKnREmi5PPj7xGAtv2aJIdMEfcZJ9e+H0Nb2aCvMvZsDodduXu6G5+1opd45v0AeTjLBkXDO6/8vnyM32VZEEKCAwMCLcOLD1z0+r+gaurDYMOGU5qr8hQadHKFsxEDYnR/9KdHhBg6A8qE2cOQa1ryu34DnWQ3m0CBApClf1YBRp/4T8BmHumfH6odD96H30HVzINrd9WM2hR9GRE3xqQyfwlvqmGn9S6snSVa+mcJ6w2wNE2LPGx0kOtBeOIUdfSsEgvSRjbowSHz9lohFZ0LxJYyizCA5vnMmYyhhkfJqm7YtjHkGWgXmqpH9BFt0D3gfORlIh787nuWfxtZ+554rDyQmPjYQG/qF4+Awehr4RxiGWTox1C67G/RzA6TOXX09xuFY+3U1ich90/KffvhoHvRVfhzxx+HUUY2qSU3HqQDzgieQQBaMuOhd1i6pua+/kPSXkuXqnIs8daao/goR5iU/lPLs7M8Dy7xZ9adzbIPuNuzHir2UuvtPlW+x/sSvOnVL9r/7TrAuWhdScglQ70EInPDVX7BgDWKrZUh86N4d7fu2f/T+6VoUSGEjq8obCj3BQ61mNEoftKVECUO4MMUdat6pY/4Xh6Dwc+FnbvR2+sX7IzI7FtgOrfO6abT+LCAR0R+UXyvnqZcjK2zkHz4DfXFbCQg==
 -----END CERTIFICATE-----`)
 	secretData := []byte(secretDataString)
+	_, invalidRetryIntervalErr := time.ParseDuration("not-an-interval")
 
 	cases := map[string]testCase{
 		"InvalidVaultStore": {
@@ -277,7 +279,7 @@ MIIFkTCCA3mgAwIBAgIUBEUg3m/WqAsWHG4Q/II3IePFfuowDQYJKoZIhvcNAQELBQAwWDELMAkGA1UE
 				}),
 			},
 			want: want{
-				err: errors.New("time: invalid duration \"not-an-interval\""),
+				err: invalidRetryIntervalErr,
 			},
 		},
 		"ValidRetrySettings": {

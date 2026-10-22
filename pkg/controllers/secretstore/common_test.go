@@ -21,6 +21,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
+	"k8s.io/utils/ptr"
 
 	esapi "github.com/external-secrets/external-secrets/apis/externalsecrets/v1"
 
@@ -47,6 +48,11 @@ var _ = Describe("SecretStore reconcile", func() {
 	// an invalid provider config should be reflected
 	// in the store status condition
 	invalidProvider := func(tc *testCase) {
+		// Force client construction to fail rather than credential validation.
+		// Only construction errors produce the InvalidProviderConfig condition.
+		tc.store.GetSpec().RetrySettings = &esapi.SecretStoreRetrySettings{
+			RetryInterval: ptr.To("not-an-interval"),
+		}
 		tc.assert = func() {
 			Eventually(func() bool {
 				ss := tc.store.Copy()
