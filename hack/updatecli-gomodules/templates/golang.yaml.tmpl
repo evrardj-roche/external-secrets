@@ -46,8 +46,8 @@ scms:
 #{{- end }}
 
 sources:
-  go-version:
-    name: Get latest Go release
+  go-toolchain:
+    name: Get latest Go patch release
     kind: golang
     spec:
       age:
@@ -56,15 +56,41 @@ sources:
         kind: semver
         pattern: '1.x'
 
+# Updatecli searchpattern uses filepath.Match: * does not cross directories.
+# Keep the depths in both targets in sync when adding a deeper Go module.
 targets:
-<%- range $index, $file := .ModuleFiles %>
-  go-version_<% $index %>:
-    name: Bump Go in <% $file %>
-    kind: golang/gomod
-    sourceid: go-version
-#{{- if $.scm.enabled }}
+  go-version:
+    name: Bump Go language version in all go.mod files
+    kind: file
+    sourceid: go-toolchain
+    transformers:
+      - findsubmatch:
+          pattern: '^([0-9]+\.[0-9]+)\.[0-9]+$'
+          capturepattern: '\1.0'
+      - addprefix: 'go '
+#{{- if .scm.enabled }}
     scmid: default
 #{{- end }}
     spec:
-      file: '<% $file %>'
-<%- end %>
+      files:
+        - 'go.mod'
+        - '*/go.mod'
+        - '*/*/*/go.mod'
+      searchpattern: true
+      matchpattern: '(?m)^go [0-9]+\.[0-9]+(?:\.[0-9]+)?$'
+  go-toolchain:
+    name: Bump Go toolchain in all go.mod files
+    kind: file
+    sourceid: go-toolchain
+    transformers:
+      - addprefix: 'toolchain go'
+#{{- if .scm.enabled }}
+    scmid: default
+#{{- end }}
+    spec:
+      files:
+        - 'go.mod'
+        - '*/go.mod'
+        - '*/*/*/go.mod'
+      searchpattern: true
+      matchpattern: '(?m)^toolchain go[0-9]+\.[0-9]+\.[0-9]+$'

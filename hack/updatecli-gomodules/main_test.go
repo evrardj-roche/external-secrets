@@ -160,7 +160,13 @@ func TestRenderManifests(t *testing.T) {
 			t.Errorf("gomodules manifest does not contain %q", expected)
 		}
 	}
-	for _, expected := range []string{"go-version_0:", "file: 'apis/go.mod'"} {
+	if strings.Contains(string(golang), "Get Go language version from latest patch release") {
+		t.Error("golang manifest must fetch the Go version only once")
+	}
+	for _, expected := range []string{
+		"go-version:", "searchpattern: true", "- '*/*/*/go.mod'", `capturepattern: '\1.0'`,
+		"go-toolchain:", "kind: file", "- addprefix: 'toolchain go'", "sourceid: go-toolchain",
+	} {
 		if !strings.Contains(string(golang), expected) {
 			t.Errorf("golang manifest does not contain %q", expected)
 		}

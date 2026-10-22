@@ -1,6 +1,8 @@
 module github.com/external-secrets/external-secrets-e2e
 
-go 1.26.6
+go 1.27.0
+
+toolchain go1.27.2
 
 tool github.com/onsi/ginkgo/v2/ginkgo
 
