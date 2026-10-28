@@ -205,6 +205,21 @@ func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (result ct
 		return ctrl.Result{}, err
 	}
 
+	// if extended metrics is enabled, refine the time series vector
+	resourceLabels = ctrlmetrics.RefineLabels(resourceLabels, externalSecret.Labels)
+
+	// Check controller ownership before synchronizing or cleaning up a target.
+	skip, err := shouldSkipUnmanagedStore(ctx, req.Namespace, r, externalSecret)
+	if err != nil {
+		log.Error(err, logErrorUnmanagedStore)
+		syncCallsError.With(resourceLabels).Inc()
+		return ctrl.Result{}, err
+	}
+	if skip {
+		log.V(1).Info("skipping ExternalSecret, uses unmanaged (Cluster)SecretStore")
+		return ctrl.Result{}, nil
+	}
+
 	// Handle deletion with finalizer
 	if !externalSecret.GetDeletionTimestamp().IsZero() {
 		// Always attempt cleanup to handle edge case where finalizer might be removed externally
@@ -247,18 +262,6 @@ func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (result ct
 
 	// if extended metrics is enabled, refine the time series vector
 	resourceLabels = ctrlmetrics.RefineLabels(resourceLabels, externalSecret.Labels)
-
-	// skip this ExternalSecret if it uses any (Cluster) SecretStore not managed by this controller
-	skip, err := shouldSkipUnmanagedStore(ctx, req.Namespace, r, externalSecret)
-	if err != nil {
-		log.Error(err, logErrorUnmanagedStore)
-		syncCallsError.With(resourceLabels).Inc()
-		return ctrl.Result{}, err
-	}
-	if skip {
-		log.V(1).Info("skipping ExternalSecret, uses unmanaged (Cluster)SecretStore")
-		return ctrl.Result{}, nil
-	}
 
 	// if this is a generic target, use a different reconciliation path
 	if isGenericTarget(externalSecret) {
