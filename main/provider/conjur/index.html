@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../pictures/eso-round-logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -3461,6 +3461,145 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#option-4-external-secret-store-with-iam-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: External secret store with IAM authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 4: External secret store with IAM authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-external-secret-store-with-azure-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: External secret store with Azure authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 5: External secret store with Azure authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store-ambient-imds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store (ambient IMDS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-alternative-define-an-external-secret-store-serviceaccount-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 (alternative): Define an external secret store (ServiceAccount token)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-6-external-secret-store-with-gcp-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 6: External secret store with GCP authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 6: External secret store with GCP authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store-ambient-gcp-metadata-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store (ambient GCP Metadata Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-alternative-define-an-external-secret-store-explicit-token-from-kubernetes-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 (alternative): Define an external secret store (explicit token from Kubernetes Secret)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3510,6 +3649,89 @@
     <span class="md-ellipsis">
       
         Get the K8s secret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-a-push-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define a push secret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Define a push secret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-key-and-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote key and policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-key-and-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret key and property
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existing variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-and-deletion-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update and deletion policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-push-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the push secret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-the-secrets-manager-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get the Secrets Manager variable
       
     </span>
   </a>
@@ -4502,7 +4724,7 @@
   <span class="md-ellipsis">
     
   
-    Nebius MysteryBox
+    Nebius SecretStash
   
 
     
@@ -5452,6 +5674,145 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#option-4-external-secret-store-with-iam-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: External secret store with IAM authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 4: External secret store with IAM authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-external-secret-store-with-azure-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: External secret store with Azure authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 5: External secret store with Azure authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store-ambient-imds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store (ambient IMDS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-alternative-define-an-external-secret-store-serviceaccount-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 (alternative): Define an external secret store (ServiceAccount token)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-6-external-secret-store-with-gcp-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 6: External secret store with GCP authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 6: External secret store with GCP authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-an-external-secret-store-ambient-gcp-metadata-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Define an external secret store (ambient GCP Metadata Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-alternative-define-an-external-secret-store-explicit-token-from-kubernetes-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 (alternative): Define an external secret store (explicit token from Kubernetes Secret)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-external-secrets-store_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the external secrets store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5501,6 +5862,89 @@
     <span class="md-ellipsis">
       
         Get the K8s secret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-a-push-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define a push secret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Define a push secret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-key-and-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote key and policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-key-and-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret key and property
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existing variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-and-deletion-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update and deletion policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-push-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the push secret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-the-secrets-manager-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get the Secrets Manager variable
       
     </span>
   </a>
@@ -5787,6 +6231,159 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> <
 <span class="c1"># If there is a need to delete the external secretstore</span>
 <span class="c1"># kubectl delete secretstore -n external-secrets conjur</span>
 </code></pre></div>
+<h3 id="option-4-external-secret-store-with-iam-authentication">Option 4: External secret store with IAM authentication</h3>
+<p>This method uses the AWS IAM <code>authn-iam</code> authenticator to authenticate with Secrets Manager. The ESO pod presents a signed AWS <code>GetCallerIdentity</code> request; Conjur verifies it against the IAM role mapped to the Conjur host. No long-lived credentials are stored — ambient credentials are used automatically (IRSA, EC2 instance profile, ECS task role, environment variables, etc.).</p>
+<p>When you use IAM authentication, the following must be specified in the <code>SecretStore</code>:</p>
+<ul>
+<li><code>account</code> — The name of the Secrets Manager account.</li>
+<li><code>serviceID</code> — The ID of the IAM Authenticator <code>WebService</code> configured in Secrets Manager.</li>
+<li><code>hostId</code> — The Conjur host mapped to the AWS IAM role (e.g. <code>data/myapp/123456789012/MyRole</code>).</li>
+</ul>
+<p>Optionally, you may reference a Kubernetes Secret that contains explicit AWS credentials via the <code>secretRef</code> field:</p>
+<ul>
+<li><code>accessKeyIDSecretRef</code> — Reference to a Secret key containing the AWS Access Key ID.</li>
+<li><code>secretAccessKeySecretRef</code> — Reference to a Secret key containing the AWS Secret Access Key.</li>
+<li><code>sessionTokenSecretRef</code> (optional) — Reference to a Secret key containing the AWS Session Token. Required only when using temporary credentials (for example, credentials obtained via <code>AssumeRole</code> or <code>AssumeRoleWithWebIdentity</code>).</li>
+</ul>
+<p>If <code>secretRef</code> is omitted, the default AWS SDK credential chain is used.</p>
+<p>The Secrets Manager <code>url</code> must use <code>https://</code> when using IAM authentication, since the AWS IAM authenticator sends
+a signed request as a bearer credential. If you must connect over plain HTTP (for example, a service mesh sidecar
+that terminates TLS locally), set <code>insecure: true</code> to explicitly opt out of this check.</p>
+<h4 id="step-1-define-an-external-secret-store_3">Step 1: Define an external secret store</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur-iam</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">conjur</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://conjur.example.com</span>
+<span class="w">      </span><span class="c1"># caBundle: &lt;base64-encoded PEM&gt;  # uncomment for self-signed certs</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">iam</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myorg</span>
+<span class="w">          </span><span class="nt">serviceID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span><span class="w">          </span><span class="c1"># authn-iam webservice ID in Conjur policy</span>
+<span class="w">          </span><span class="nt">hostId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/myapp/123456789012/MyRole</span><span class="w">  </span><span class="c1"># Conjur host mapped to the AWS IAM role</span>
+<span class="w">          </span><span class="c1"># secretRef:             # omit to use ambient credentials (IRSA, instance profile, etc.)</span>
+<span class="w">          </span><span class="c1">#   accessKeyIDSecretRef:</span>
+<span class="w">          </span><span class="c1">#     name: aws-creds</span>
+<span class="w">          </span><span class="c1">#     key: access-key-id</span>
+<span class="w">          </span><span class="c1">#   secretAccessKeySecretRef:</span>
+<span class="w">          </span><span class="c1">#     name: aws-creds</span>
+<span class="w">          </span><span class="c1">#     key: secret-access-key</span>
+<span class="w">          </span><span class="c1">#   sessionTokenSecretRef:  # required only when using temporary credentials</span>
+<span class="w">          </span><span class="c1">#     name: aws-creds</span>
+<span class="w">          </span><span class="c1">#     key: session-token</span>
+<span class="w">          </span><span class="c1"># insecure: true          # required to authenticate over a plain HTTP url; use only when the connection is otherwise protected</span>
+</code></pre></div>
+<h4 id="step-2-create-the-external-secrets-store_1">Step 2: Create the external secrets store</h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>-f<span class="w"> </span>conjur-secret-store.yaml
+</code></pre></div>
+<h3 id="option-5-external-secret-store-with-azure-authentication">Option 5: External secret store with Azure authentication</h3>
+<p>This method uses the Azure <code>authn-azure</code> authenticator to authenticate with Secrets Manager. The ESO pod presents an Azure JWT token; Conjur verifies it against the managed identity mapped to the Conjur host.</p>
+<p>Two sub-modes are available:</p>
+<ul>
+<li><strong>Ambient IMDS</strong> (recommended on AKS / Azure VM): no <code>serviceAccountRef</code> is set. <code>conjur-api-go</code> fetches the Azure JWT from the Azure Instance Metadata Service (IMDS) automatically. Use this when the pod runs on Azure infrastructure with a managed identity attached.</li>
+<li><strong>ServiceAccount token</strong> (<code>serviceAccountRef</code>): ESO requests a Kubernetes ServiceAccount token via the TokenRequest API and forwards it as the Azure JWT. Use this for local testing or when running outside Azure.</li>
+</ul>
+<p>For <strong>user-assigned</strong> managed identities you must also set <code>clientId</code> to the client ID of the managed identity. For <strong>system-assigned</strong> identities, omit <code>clientId</code>.</p>
+<h4 id="step-1-define-an-external-secret-store-ambient-imds">Step 1: Define an external secret store (ambient IMDS)</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur-azure-ambient</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">conjur</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://conjur.example.com</span>
+<span class="w">      </span><span class="c1"># caBundle: &lt;base64-encoded PEM&gt;  # uncomment for self-signed certs</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myorg</span>
+<span class="w">          </span><span class="nt">serviceID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span><span class="w">          </span><span class="c1"># authn-azure webservice ID in Conjur policy</span>
+<span class="w">          </span><span class="nt">hostId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/myapp/myhost</span><span class="w">  </span><span class="c1"># Conjur host mapped to the Azure managed identity</span>
+<span class="w">          </span><span class="c1"># clientId: &lt;managed-identity-client-id&gt;  # required for user-assigned managed identities</span>
+</code></pre></div>
+<h4 id="step-1-alternative-define-an-external-secret-store-serviceaccount-token">Step 1 (alternative): Define an external secret store (ServiceAccount token)</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur-azure-sa</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">conjur</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://conjur.example.com</span>
+<span class="w">      </span><span class="c1"># caBundle: &lt;base64-encoded PEM&gt;  # uncomment for self-signed certs</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">azure</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myorg</span>
+<span class="w">          </span><span class="nt">serviceID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span>
+<span class="w">          </span><span class="nt">hostId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/myapp/myhost</span>
+<span class="w">          </span><span class="nt">serviceAccountRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-service-account</span><span class="w">  </span><span class="c1"># Kubernetes ServiceAccount in the same namespace</span>
+<span class="w">            </span><span class="nt">audiences</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur</span><span class="w">              </span><span class="c1"># must match the Conjur authn-azure policy audience</span>
+</code></pre></div>
+<h4 id="step-2-create-the-external-secrets-store_2">Step 2: Create the external secrets store</h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>-f<span class="w"> </span>conjur-secret-store.yaml
+</code></pre></div>
+<h3 id="option-6-external-secret-store-with-gcp-authentication">Option 6: External secret store with GCP authentication</h3>
+<p>This method uses the GCP <code>authn-gcp</code> authenticator to authenticate with Secrets Manager. The ESO pod presents a GCP identity token; Conjur verifies it against the service account mapped to the Conjur host.</p>
+<p>Two sub-modes are supported:</p>
+<ul>
+<li><strong>Ambient GCP Metadata Service</strong> (recommended on GKE with Workload Identity): no <code>secretRef</code> is set. <code>conjur-api-go</code> fetches the GCP identity token from the GCP Metadata Service automatically. Use this when the pod runs on GKE with Workload Identity or on a GCE instance.</li>
+<li><strong>Kubernetes Secret</strong> (<code>secretRef</code>): a pre-obtained GCP identity token is read from a Kubernetes Secret. Use this for local testing or when running outside GCP.</li>
+</ul>
+<p>The following must be specified in the <code>SecretStore</code>:</p>
+<ul>
+<li><code>account</code> — The Conjur organization account name.</li>
+<li><code>hostId</code> — The Conjur host mapped to the GCP service account (e.g. <code>data/myapp/myhost</code>).</li>
+</ul>
+<p>Optionally, you may set <code>serviceID</code> to the GCP Authenticator <code>WebService</code> ID configured in Conjur policy. This field is reserved for future use; Conjur's authn-gcp authenticator does not include the service ID in the authentication URL.</p>
+<h4 id="step-1-define-an-external-secret-store-ambient-gcp-metadata-service">Step 1: Define an external secret store (ambient GCP Metadata Service)</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur-gcp-ambient</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">conjur</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://conjur.example.com</span>
+<span class="w">      </span><span class="c1"># caBundle: &lt;base64-encoded PEM&gt;  # uncomment for self-signed certs</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">gcp</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myorg</span>
+<span class="w">          </span><span class="nt">serviceID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span><span class="w">          </span><span class="c1"># reserved for future use; not used by authn-gcp today</span>
+<span class="w">          </span><span class="nt">hostId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/myapp/myhost</span><span class="w">  </span><span class="c1"># Conjur host mapped to the GCP service account</span>
+</code></pre></div>
+<h4 id="step-1-alternative-define-an-external-secret-store-explicit-token-from-kubernetes-secret">Step 1 (alternative): Define an external secret store (explicit token from Kubernetes Secret)</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur-gcp-secretref</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">conjur</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://conjur.example.com</span>
+<span class="w">      </span><span class="c1"># caBundle: &lt;base64-encoded PEM&gt;  # uncomment for self-signed certs</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">gcp</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myorg</span>
+<span class="w">          </span><span class="nt">serviceID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span><span class="w">          </span><span class="c1"># reserved for future use; not used by authn-gcp today</span>
+<span class="w">          </span><span class="nt">hostId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/myapp/myhost</span>
+<span class="w">          </span><span class="nt">secretRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">jwt</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp-token-secret</span><span class="w">  </span><span class="c1"># Kubernetes Secret in the same namespace</span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token</span><span class="w">              </span><span class="c1"># key within the Secret holding the GCP identity token</span>
+</code></pre></div>
+<h4 id="step-2-create-the-external-secrets-store_3">Step 2: Create the external secrets store</h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>-f<span class="w"> </span>conjur-secret-store.yaml
+</code></pre></div>
 <h2 id="define-an-external-secret">Define an external secret</h2>
 <p>After you have configured the Secrets Manager provider secret store, you can fetch secrets from Secrets Manager.</p>
 <p>Here is an example of how to fetch a single secret from Secrets Manager:</p>
@@ -5860,6 +6457,132 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> <
 <span class="c1"># Assuming the secret name is &quot;secret00&quot;, this will show the value</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>conjur<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.secret00}&quot;</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
 </code></pre></div>
+<h2 id="define-a-push-secret">Define a push secret</h2>
+<p>The Secrets Manager provider also supports <a href="../../guides/pushsecrets/">PushSecret</a>. This means that you can
+push the values of a Kubernetes secret into Secrets Manager variables.</p>
+<p>Here is an example of how to push a single key of a Kubernetes secret into Secrets Manager:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PushSecret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h0m0s</span>
+<span class="w">  </span><span class="c1"># Only the Replace update policy is supported by the Secrets Manager provider.</span>
+<span class="w">  </span><span class="nt">updatePolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace</span>
+<span class="w">  </span><span class="c1"># Deleting pushed variables is not supported, keep the default deletion policy.</span>
+<span class="w">  </span><span class="nt">deletionPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span>
+<span class="w">  </span><span class="nt">secretStoreRefs</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># This name must match the metadata.name in the `SecretStore`</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjur</span>
+<span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">secret</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Source Kubernetes secret to be pushed</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app1-credentials</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># Key in the source Kubernetes secret</span>
+<span class="w">        </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">        </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">          </span><span class="c1"># &lt;parent policy&gt;/&lt;policy to create&gt;; must contain at least one &#39;/&#39;</span>
+<span class="w">          </span><span class="nt">remoteKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/app1/pushed</span>
+<span class="w">          </span><span class="c1"># Creates the variable data/app1/pushed/db-password</span>
+<span class="w">          </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-password</span>
+</code></pre></div>
+<p>Save the push secret file as <code>conjur-push-secret.yaml</code>. The source Kubernetes secret (<code>app1-credentials</code> in this
+example) must already exist in the same namespace as the PushSecret.</p>
+<h3 id="remote-key-and-policy">Remote key and policy</h3>
+<p>In Secrets Manager, a variable must be declared in a policy before a value can be stored in it. For this reason,
+ESO does not write values directly to <code>remoteKey</code>. It first loads a policy that declares the variables, and then
+sets their values.</p>
+<p>The <code>remoteRef.remoteKey</code> must contain at least one <code>/</code>. ESO splits it at the last <code>/</code>:</p>
+<ul>
+<li>the part before the last <code>/</code> is the <strong>parent policy</strong>, which must already exist (for example <code>data/app1</code>)</li>
+<li>the last segment is the name of a <strong>policy</strong> that ESO creates under the parent (for example <code>pushed</code>)</li>
+</ul>
+<p>On each sync, ESO loads a policy into the parent policy (in <code>POST</code> mode, which only adds to it). The policy contains:</p>
+<ul>
+<li>one variable for each value that is pushed, annotated with <code>managed-by: external-secrets</code></li>
+<li>a <code>delegation/consumers</code> group, annotated with <code>editable: "true"</code>, which has <code>read</code> and <code>execute</code> privileges on
+  those variables. To give an application access to the pushed values, add its host or layer to this group.</li>
+</ul>
+<p>The Secrets Manager host that the <code>SecretStore</code> uses must have permission to load policy into the parent policy
+(<code>create</code>) and to set the values of the variables that it creates (<code>update</code>). The host also needs <code>read</code> and
+<code>execute</code> on those variables, because ESO compares their current values before it writes. The policy grants these
+privileges only to <code>delegation/consumers</code>, so add the host to this group if it does not already have them. If ESO
+cannot read the value of a variable, it skips that variable without reporting an error, so the variable can keep an
+old value while the PushSecret still shows as synced.</p>
+<h3 id="secret-key-and-property">Secret key and property</h3>
+<p>The name of the variable depends on whether <code>secretKey</code> and <code>remoteRef.property</code> are set:</p>
+<table>
+<thead>
+<tr>
+<th><code>secretKey</code></th>
+<th><code>property</code></th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set</td>
+<td>not set</td>
+<td>One variable <code>&lt;remoteKey&gt;/&lt;secretKey&gt;</code> that holds the value of that key</td>
+</tr>
+<tr>
+<td>set</td>
+<td>set</td>
+<td>One variable <code>&lt;remoteKey&gt;/&lt;property&gt;</code> that holds the value of that key</td>
+</tr>
+<tr>
+<td>not set</td>
+<td>not set</td>
+<td>One variable <code>&lt;remoteKey&gt;/&lt;key&gt;</code> for each key in the source secret</td>
+</tr>
+<tr>
+<td>not set</td>
+<td>set</td>
+<td>One variable <code>&lt;remoteKey&gt;/&lt;property&gt;</code> that holds all keys of the source secret as a JSON object</td>
+</tr>
+</tbody>
+</table>
+<p>Pushing all keys into one <code>property</code> only works if every value in the source secret is valid UTF-8 text.
+Binary values cannot be written into the JSON object correctly.</p>
+<h3 id="existing-variables">Existing variables</h3>
+<p>Before ESO writes a variable, it checks whether the variable already exists:</p>
+<ul>
+<li>If the variable does not exist, ESO creates it.</li>
+<li>If the variable exists but does not have the <code>managed-by: external-secrets</code> annotation, ESO skips it and does
+  not change it. ESO does not report an error for this. Variables that other tools manage are never overwritten.</li>
+<li>If ESO cannot read the current value of the variable, it skips the variable.</li>
+<li>If the value is the same as the value in Kubernetes, ESO skips the variable, so no new version is created.</li>
+</ul>
+<h3 id="update-and-deletion-policies">Update and deletion policies</h3>
+<ul>
+<li><code>updatePolicy: IfNotExists</code> is not supported. Use the default <code>Replace</code> policy.</li>
+<li><code>deletionPolicy: Delete</code> is not supported. ESO cannot remove variables from Secrets Manager, so deleting the
+  PushSecret returns an error. Removing an entry from <code>spec.data</code> also returns an error, unless the same <code>remoteKey</code>
+  is still pushed as a whole secret, or <code>property</code> entries for that <code>remoteKey</code> replace a removed whole-secret entry.
+  In those cases, ESO skips the cleanup and the variables stay in Secrets Manager. Keep the default
+  <code>deletionPolicy: None</code> and remove the variables from Secrets Manager yourself.</li>
+</ul>
+<h2 id="create-the-push-secret">Create the push secret</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># WARNING: creates the push-secret in the &quot;external-secrets&quot; namespace, update the value as needed</span>
+<span class="c1">#</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>-f<span class="w"> </span>conjur-push-secret.yaml
+
+<span class="c1"># WARNING: running the delete command will delete the push-secrets configuration</span>
+<span class="c1"># It does not delete the variables in Secrets Manager</span>
+<span class="c1">#</span>
+<span class="c1"># If there is a need to delete the push secret</span>
+<span class="c1"># kubectl delete pushsecret -n external-secrets conjur</span>
+</code></pre></div>
+<h2 id="get-the-secrets-manager-variable">Get the Secrets Manager variable</h2>
+<ul>
+<li>Check that the push secret is synced: <code>kubectl get pushsecret -n external-secrets conjur</code></li>
+<li>Log in to your Secrets Manager server and verify that the variable exists and has the
+  <code>managed-by: external-secrets</code> annotation</li>
+<li>Review the value of the variable to verify that it contains the same value as your Kubernetes secret</li>
+</ul>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://github.com/conjurdemos/Accelerator-K8s-External-Secrets">Accelerator-K8s-External-Secrets repo</a></li>
@@ -5929,10 +6652,10 @@ For a list of trademarks of The Linux Foundation, please see our <a href="https:
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.expand"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

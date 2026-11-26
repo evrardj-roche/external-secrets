@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../pictures/eso-round-logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -4274,7 +4274,7 @@
   <span class="md-ellipsis">
     
   
-    Nebius MysteryBox
+    Nebius SecretStash
   
 
     
@@ -5109,10 +5109,12 @@
 <span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kubernetes&quot;</span>
 <span class="w">          </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demo-role&quot;</span>
 </code></pre></div></p>
-<p>Now, any <code>ExternalSecret</code> bound to this secret store will be evaluated by the operator with the controllerClass custom.</p>
+<p>Now, any <code>ExternalSecret</code> bound to this secret store will be evaluated by the operator with the controllerClass custom. If an <code>ExternalSecret</code> references multiple stores (including overrides under <code>spec.data[].sourceRef</code> or <code>spec.dataFrom[].sourceRef</code>), a controller skips it when any referenced store belongs to a different controller class.</p>
 <blockquote>
-<p>Note: Any SecretStore without <code>spec.controller</code> set will be considered as valid by any operator, regardless of their respective controllerClasses.</p>
+<p>Note: Any SecretStore without <code>spec.controller</code> set will be considered as valid by any operator, regardless of their respective controllerClasses. The same applies to ClusterSecretStores.</p>
 </blockquote>
+<p>Skipped <code>ExternalSecrets</code> (not belonging to this controllerClass) are retried after the controller's requeue interval (or one hour if it is not configured), even if their ExternalSecret refresh interval is zero.
+This is done to make it possible to pick up changes from a referenced store or generator's class.</p>
 
 
 
@@ -5177,10 +5179,10 @@ For a list of trademarks of The Linux Foundation, please see our <a href="https:
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.expand"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
